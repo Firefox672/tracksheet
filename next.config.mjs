@@ -3,6 +3,7 @@ const nextConfig = {
   output: 'export',
   basePath: '/tracksheet',
   trailingSlash: true,
-  distDir: 'docs',
+  distDir: 'out',
 };
+
 export default nextConfig;
