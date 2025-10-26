@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { User, BookOpen, Users, Zap, Globe, BarChart3 } from "lucide-react"
+import { LayoutDashboard, User, BookOpen, Users, Zap, Globe, BarChart3, Bell } from "lucide-react"
 
 interface StudentSidebarProps {
   activeSection: string
@@ -10,12 +10,14 @@ interface StudentSidebarProps {
 
 export default function StudentSidebar({ activeSection, onSectionChange }: StudentSidebarProps) {
   const menuItems = [
+    { id: "overview", label: "Overview", icon: LayoutDashboard },
     { id: "profile", label: "Profile", icon: User },
     { id: "academic", label: "Academic Details", icon: BookOpen },
     { id: "cocircular", label: "Co-Circulars", icon: Users },
     { id: "extracircular", label: "Extra-Circulars", icon: Zap },
     { id: "platforms", label: "Online Platforms", icon: Globe },
     { id: "analysis", label: "Overall Analysis", icon: BarChart3 },
+    { id: "alerts", label: "Alerts", icon: Bell },
   ]
 
   return (

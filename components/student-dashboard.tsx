@@ -3,12 +3,14 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import StudentSidebar from "./student-sidebar"
+import OverviewSection from "./sections/overview-section"
 import ProfileSection from "./sections/profile-section"
 import AcademicSection from "./sections/academic-section"
 import CoCurricularSection from "./sections/co-curricular-section"
 import ExtraCurricularSection from "./sections/extra-curricular-section"
 import OnlinePlatformsSection from "./sections/online-platforms-section"
 import OverallAnalysisSection from "./sections/overall-analysis-section"
+import AlertsSection from "./sections/alerts-section"
 
 interface StudentDashboardProps {
   studentId: string
@@ -16,10 +18,12 @@ interface StudentDashboardProps {
 }
 
 export default function StudentDashboard({ studentId, onLogout }: StudentDashboardProps) {
-  const [activeSection, setActiveSection] = useState("profile")
+  const [activeSection, setActiveSection] = useState("overview")
 
   const renderSection = () => {
     switch (activeSection) {
+      case "overview":
+        return <OverviewSection studentId={studentId} />
       case "profile":
         return <ProfileSection studentId={studentId} />
       case "academic":
@@ -32,8 +36,10 @@ export default function StudentDashboard({ studentId, onLogout }: StudentDashboa
         return <OnlinePlatformsSection studentId={studentId} />
       case "analysis":
         return <OverallAnalysisSection studentId={studentId} />
+      case "alerts":
+        return <AlertsSection studentId={studentId} />
       default:
-        return <ProfileSection studentId={studentId} />
+        return <OverviewSection studentId={studentId} />
     }
   }
 

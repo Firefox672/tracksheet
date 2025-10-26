@@ -15,7 +15,13 @@ import {
   ResponsiveContainer,
   LineChart,
   Line,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
 } from "recharts"
+import { TrendingUp, AlertTriangle, Briefcase } from "lucide-react"
 
 interface OverallAnalysisSectionProps {
   studentId: string
@@ -45,9 +51,98 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
 
   const COLORS = ["#3b82f6", "#10b981", "#f59e0b", "#ef4444", "#8b5cf6"]
 
+  const predictiveData = [
+    {
+      metric: "Next Semester GPA",
+      value: 3.6,
+      confidence: 87,
+      trend: "up",
+      description: "Expected GPA based on current performance trajectory",
+    },
+    {
+      metric: "Dropout Risk Score",
+      value: 15,
+      confidence: 92,
+      trend: "down",
+      description: "Probability of dropout (lower is better)",
+    },
+    {
+      metric: "Career Readiness Index",
+      value: 78,
+      confidence: 84,
+      trend: "up",
+      description: "Readiness for industry roles based on skills",
+    },
+  ]
+
+  const radarData = [
+    { category: "Academic", value: 85 },
+    { category: "Coding Skills", value: 78 },
+    { category: "Communication", value: 72 },
+    { category: "Leadership", value: 68 },
+    { category: "Teamwork", value: 82 },
+    { category: "Problem Solving", value: 88 },
+  ]
+
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-white">Overall Analysis</h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {predictiveData.map((item, index) => {
+          const Icon =
+            item.metric === "Next Semester GPA"
+              ? TrendingUp
+              : item.metric === "Dropout Risk Score"
+                ? AlertTriangle
+                : Briefcase
+          return (
+            <Card key={index} className="bg-slate-800 border-slate-700">
+              <CardContent className="pt-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <p className="text-slate-400 text-sm mb-1">{item.metric}</p>
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-3xl font-bold text-blue-400">{item.value}</span>
+                      {item.metric === "Next Semester GPA" && <span className="text-slate-400">/4.0</span>}
+                      {item.metric === "Dropout Risk Score" && <span className="text-slate-400">%</span>}
+                      {item.metric === "Career Readiness Index" && <span className="text-slate-400">/100</span>}
+                    </div>
+                  </div>
+                  <Icon className="text-blue-400" size={24} />
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-400">Confidence</span>
+                    <span className="text-slate-300">{item.confidence}%</span>
+                  </div>
+                  <div className="w-full bg-slate-700 rounded-full h-2">
+                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${item.confidence}%` }}></div>
+                  </div>
+                  <p className="text-slate-400 text-xs mt-3">{item.description}</p>
+                </div>
+              </CardContent>
+            </Card>
+          )
+        })}
+      </div>
+
+      <Card className="bg-slate-800 border-slate-700">
+        <CardHeader>
+          <CardTitle className="text-white">Holistic Profile (360° View)</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ResponsiveContainer width="100%" height={300}>
+            <RadarChart data={radarData}>
+              <PolarGrid stroke="#475569" />
+              <PolarAngleAxis dataKey="category" stroke="#94a3b8" />
+              <PolarRadiusAxis stroke="#94a3b8" />
+              <Radar name="Score" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.6} />
+              <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "1px solid #475569" }} />
+            </RadarChart>
+          </ResponsiveContainer>
+        </CardContent>
+      </Card>
 
       {/* Academic Performance */}
       <Card className="bg-slate-800 border-slate-700">
