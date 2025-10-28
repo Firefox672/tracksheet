@@ -36,11 +36,10 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
   }
 
   const subjectPerformanceData = [
-    { subject: "Mathematics", yourScore: 85, classAvg: 75 },
-    { subject: "Physics", yourScore: 78, classAvg: 72 },
-    { subject: "Chemistry", yourScore: 92, classAvg: 80 },
-    { subject: "Computer Science", yourScore: 95, classAvg: 82 },
-    { subject: "English", yourScore: 88, classAvg: 78 },
+    { subject: "Data Structures", yourScore: 85, classAvg: 75 },
+    { subject: "Database Management", yourScore: 78, classAvg: 72 },
+    { subject: "Web Development", yourScore: 92, classAvg: 80 },
+    { subject: "Algorithms", yourScore: 88, classAvg: 78 },
   ]
 
   return (
