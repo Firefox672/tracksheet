@@ -7,8 +7,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? '/tracksheet' : '',
-  assetPrefix: isProd ? '/tracksheet/' : '',
 }
 
 export default nextConfig
