@@ -75,6 +75,8 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Install lightningcss Linux binary
         run: npm install --save-dev lightningcss-linux-x64-gnu@1.30.2 --force
+      - name: Install Tailwind Oxide Linux binary
+        run: npm install --save-dev @tailwindcss/oxide-linux-x64-gnu@4.1.17 --force
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
       - name: Upload artifact
