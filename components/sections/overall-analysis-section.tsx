@@ -86,7 +86,7 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Overall Analysis</h2>
+      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Overall Analysis</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {predictiveData.map((item, index) => {
@@ -97,29 +97,29 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
                 ? AlertTriangle
                 : Briefcase
           return (
-            <Card key={index} className="bg-slate-800 border-slate-700">
+            <Card key={index} className="glass-sm border border-slate-200/80">
               <CardContent className="pt-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <p className="text-slate-400 text-sm mb-1">{item.metric}</p>
+                    <p className="text-slate-500 text-sm mb-1">{item.metric}</p>
                     <div className="flex items-baseline gap-2">
-                      <span className="text-3xl font-bold text-blue-400">{item.value}</span>
-                      {item.metric === "Next Semester GPA" && <span className="text-slate-400">/4.0</span>}
-                      {item.metric === "Dropout Risk Score" && <span className="text-slate-400">%</span>}
-                      {item.metric === "Career Readiness Index" && <span className="text-slate-400">/100</span>}
+                      <span className="text-3xl font-bold text-sky-600">{item.value}</span>
+                      {item.metric === "Next Semester GPA" && <span className="text-slate-500">/4.0</span>}
+                      {item.metric === "Dropout Risk Score" && <span className="text-slate-500">%</span>}
+                      {item.metric === "Career Readiness Index" && <span className="text-slate-500">/100</span>}
                     </div>
                   </div>
-                  <Icon className="text-blue-400" size={24} />
+                  <Icon className="text-sky-500" size={24} />
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Confidence</span>
-                    <span className="text-slate-300">{item.confidence}%</span>
+                    <span className="text-slate-500">Confidence</span>
+                    <span className="text-slate-600">{item.confidence}%</span>
                   </div>
-                  <div className="w-full bg-slate-700 rounded-full h-2">
-                    <div className="bg-blue-500 h-2 rounded-full" style={{ width: `${item.confidence}%` }}></div>
+                  <div className="w-full bg-slate-100 rounded-full h-2">
+                    <div className="bg-sky-500 h-2 rounded-full" style={{ width: `${item.confidence}%` }}></div>
                   </div>
-                  <p className="text-slate-400 text-xs mt-3">{item.description}</p>
+                  <p className="text-slate-600 text-xs mt-3">{item.description}</p>
                 </div>
               </CardContent>
             </Card>
@@ -127,35 +127,35 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
         })}
       </div>
 
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Holistic Profile (360° View)</CardTitle>
+          <CardTitle className="text-slate-900">Holistic Profile (360° View)</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
             <RadarChart data={radarData}>
-              <PolarGrid stroke="#475569" />
-              <PolarAngleAxis dataKey="category" stroke="#94a3b8" />
-              <PolarRadiusAxis stroke="#94a3b8" />
-              <Radar name="Score" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.6} />
-              <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "1px solid #475569" }} />
+              <PolarGrid stroke="#e5e7eb" />
+              <PolarAngleAxis dataKey="category" stroke="#64748b" />
+              <PolarRadiusAxis stroke="#64748b" />
+              <Radar name="Score" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.35} />
+              <Tooltip contentStyle={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12 }} />
             </RadarChart>
           </ResponsiveContainer>
         </CardContent>
       </Card>
 
       {/* Academic Performance */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Academic Performance</CardTitle>
+          <CardTitle className="text-slate-900">Academic Performance</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={academicData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
-              <XAxis dataKey="category" stroke="#94a3b8" />
-              <YAxis stroke="#94a3b8" />
-              <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "1px solid #475569" }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="category" stroke="#64748b" />
+              <YAxis stroke="#64748b" />
+              <Tooltip contentStyle={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12 }} />
               <Bar dataKey="score" fill="#3b82f6" radius={[8, 8, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
@@ -163,9 +163,9 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
       </Card>
 
       {/* Activities Distribution */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Activities Distribution</CardTitle>
+          <CardTitle className="text-slate-900">Activities Distribution</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
@@ -184,24 +184,24 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
                   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                 ))}
               </Pie>
-              <Tooltip contentStyle={{ backgroundColor: "#b0bac9b2", border: "1px solid #475569" }} />
+              <Tooltip contentStyle={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12 }} />
             </PieChart>
           </ResponsiveContainer>
         </CardContent>
       </Card>
 
       {/* Performance Trend */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Performance Trend</CardTitle>
+          <CardTitle className="text-slate-900">Performance Trend</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={performanceData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
-              <XAxis dataKey="month" stroke="#94a3b8" />
-              <YAxis stroke="#94a3b8" />
-              <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "1px solid #475569" }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="month" stroke="#64748b" />
+              <YAxis stroke="#64748b" />
+              <Tooltip contentStyle={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12 }} />
               <Legend />
               <Line type="monotone" dataKey="academic" stroke="#3b82f6" strokeWidth={2} />
               <Line type="monotone" dataKey="activities" stroke="#10b981" strokeWidth={2} />
@@ -212,14 +212,14 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
       </Card>
 
       {/* Recommendations */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Recommendations</CardTitle>
+          <CardTitle className="text-slate-900">Recommendations</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="bg-slate-700 p-4 rounded-lg border-l-4 border-blue-500">
-            <h4 className="text-white font-semibold mb-2">Individual Recommendations</h4>
-            <ul className="text-slate-300 space-y-2 text-sm">
+          <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg border-l-4 border-blue-500">
+            <h4 className="text-slate-900 font-semibold mb-2">Individual Recommendations</h4>
+            <ul className="text-slate-600 space-y-2 text-sm">
               <li>• Focus on maintaining consistent academic performance</li>
               <li>• Increase participation in coding competitions</li>
               <li>• Explore more online learning platforms for skill development</li>
@@ -227,9 +227,9 @@ export default function OverallAnalysisSection({ studentId }: OverallAnalysisSec
             </ul>
           </div>
 
-          <div className="bg-slate-700 p-4 rounded-lg border-l-4 border-green-500">
-            <h4 className="text-white font-semibold mb-2">Overall Performance Summary</h4>
-            <ul className="text-slate-300 space-y-2 text-sm">
+          <div className="bg-slate-50 border border-slate-200 p-4 rounded-lg border-l-4 border-green-500">
+            <h4 className="text-slate-900 font-semibold mb-2">Overall Performance Summary</h4>
+            <ul className="text-slate-600 space-y-2 text-sm">
               <li>✓ Strong academic foundation with 85% average</li>
               <li>✓ Good participation in co-curricular activities</li>
               <li>✓ Active on multiple online coding platforms</li>

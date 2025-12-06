@@ -33,9 +33,9 @@ export default function ExtraCurricularSection({ studentId }: ExtraCurricularSec
   ]
 
   const recentActivities = [
-    { title: "Basketball Tournament", role: "Team Captain • 1st Place", date: "15 Mar 2025", color: "border-blue-500" },
-    { title: "Coding Club Workshop", role: "Organizer • 45 attendees", date: "10 Mar 2025", color: "border-green-500" },
-    { title: "Community Service", role: "Volunteer • 20 hours", date: "5 Mar 2025", color: "border-purple-500" },
+    { title: "Basketball Tournament", role: "Team Captain • 1st Place", date: "15 Mar 2025", color: "border-yellow-500" },
+    { title: "Coding Club Workshop", role: "Organizer • 45 attendees", date: "10 Mar 2025", color: "border-yellow-500" },
+    { title: "Community Service", role: "Volunteer • 20 hours", date: "5 Mar 2025", color: "border-yellow-500" },
     { title: "Debate Competition", role: "Participant • Finalist", date: "1 Mar 2025", color: "border-yellow-500" },
   ]
 
@@ -43,15 +43,15 @@ export default function ExtraCurricularSection({ studentId }: ExtraCurricularSec
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Extra-Curricular Activities</h2>
+      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Extra-Curricular Activities</h2>
 
-      <div className="grid grid-cols-2 gap-6">
-        <Card className="bg-slate-800 border-slate-700">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card className="glass-sm border border-slate-200/80">
           <CardHeader>
-            <CardTitle className="text-white">Activity Distribution</CardTitle>
+            <CardTitle className="text-slate-900">Activity Distribution</CardTitle>
           </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
+          <CardContent className="h-72">
+            <ResponsiveContainer width="100%" height="100%">
               <PieChart>
                 <Pie
                   data={activityDistribution}
@@ -67,21 +67,21 @@ export default function ExtraCurricularSection({ studentId }: ExtraCurricularSec
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip contentStyle={{ backgroundColor: "#ccd2e2c6", border: "1px solid #475569" }} />
+                <Tooltip contentStyle={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12 }} />
               </PieChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 border-slate-700">
+        <Card className="glass-sm border border-slate-200/80">
           <CardHeader>
-            <CardTitle className="text-white">Recent Activities</CardTitle>
+            <CardTitle className="text-slate-900">Recent Activities</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             {recentActivities.map((activity, idx) => (
-              <div key={idx} className={`bg-slate-700 border-l-4 ${activity.color} p-4 rounded`}>
-                <p className="text-white font-semibold text-sm">{activity.title}</p>
-                <p className="text-slate-400 text-xs mt-1">{activity.role}</p>
+              <div key={idx} className={`bg-slate-50/90 border border-slate-200 border-l-4 ${activity.color} p-4 rounded-lg`}>
+                <p className="text-slate-900 font-semibold text-sm">{activity.title}</p>
+                <p className="text-slate-600 text-xs mt-1">{activity.role}</p>
                 <p className="text-slate-500 text-xs mt-2">{activity.date}</p>
               </div>
             ))}
@@ -90,18 +90,19 @@ export default function ExtraCurricularSection({ studentId }: ExtraCurricularSec
       </div>
 
       {/* Sports */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Sports</CardTitle>
+          <CardTitle className="text-slate-900">Sports</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {extraCurricularData.sports.map((sport, idx) => (
-              <div key={idx} className="bg-slate-700 p-4 rounded-lg">
+              <div key={idx} className="bg-slate-50/90 border border-slate-200 p-4 rounded-lg">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-white font-semibold">{sport.name}</p>
-                    <p className="text-sm text-slate-400">{sport.achievements}</p>
+                    <p className="text-slate-900 font-semibold">{sport.name}</p>
+                    <p className="text-sm text-slate-500">{sport.achievements}</p>
+
                   </div>
                   <Badge className="bg-orange-600">{sport.level}</Badge>
                 </div>
@@ -112,18 +113,18 @@ export default function ExtraCurricularSection({ studentId }: ExtraCurricularSec
       </Card>
 
       {/* Arts & Culture */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Arts & Culture</CardTitle>
+          <CardTitle className="text-slate-900">Arts & Culture</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {extraCurricularData.arts.map((art, idx) => (
-              <div key={idx} className="bg-slate-700 p-4 rounded-lg">
+              <div key={idx} className="bg-slate-50/90 border border-slate-200 p-4 rounded-lg">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-white font-semibold">{art.name}</p>
-                    <p className="text-sm text-slate-400">{art.achievements}</p>
+                    <p className="text-slate-900 font-semibold">{art.name}</p>
+                    <p className="text-sm text-slate-500">{art.achievements}</p>
                   </div>
                   <Badge className="bg-pink-600">{art.level}</Badge>
                 </div>
@@ -134,18 +135,18 @@ export default function ExtraCurricularSection({ studentId }: ExtraCurricularSec
       </Card>
 
       {/* Social Service */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Social Service</CardTitle>
+          <CardTitle className="text-slate-900">Social Service</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {extraCurricularData.socialService.map((service, idx) => (
-              <div key={idx} className="bg-slate-700 p-4 rounded-lg">
+              <div key={idx} className="bg-slate-50/90 border border-slate-200 p-4 rounded-lg">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-white font-semibold">{service.name}</p>
-                    <p className="text-sm text-slate-400">{service.achievements}</p>
+                    <p className="text-slate-900 font-semibold">{service.name}</p>
+                    <p className="text-sm text-slate-500">{service.achievements}</p>
                   </div>
                   <Badge className="bg-green-600">{service.level}</Badge>
                 </div>

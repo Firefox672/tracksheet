@@ -26,36 +26,36 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
         return (
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium text-slate-200 block mb-2">Date of Birth</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Date of Birth</label>
               <Input
                 type="date"
                 value={formData.dob || ""}
                 onChange={(e) => setFormData({ ...formData, dob: e.target.value })}
-                className="bg-slate-700 border-slate-600 text-white"
+                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-slate-200 block mb-2">Address</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Address</label>
               <Input
                 value={formData.address || ""}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                className="bg-slate-700 border-slate-600 text-white"
+                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-slate-200 block mb-2">Parent Name</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Parent Name</label>
               <Input
                 value={formData.parentName || ""}
                 onChange={(e) => setFormData({ ...formData, parentName: e.target.value })}
-                className="bg-slate-700 border-slate-600 text-white"
+                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-slate-200 block mb-2">Parent Phone</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Parent Phone</label>
               <Input
                 value={formData.parentPhone || ""}
                 onChange={(e) => setFormData({ ...formData, parentPhone: e.target.value })}
-                className="bg-slate-700 border-slate-600 text-white"
+                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
               />
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
         return (
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium text-slate-200 block mb-2">10th Grade Percentage</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">10th Grade Percentage</label>
               <Input
                 type="number"
                 value={formData.tenth?.percentage || ""}
@@ -74,11 +74,11 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
                     tenth: { ...formData.tenth, percentage: Number.parseFloat(e.target.value) },
                   })
                 }
-                className="bg-slate-700 border-slate-600 text-white"
+                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-slate-200 block mb-2">Intermediate Percentage</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Intermediate Percentage</label>
               <Input
                 type="number"
                 value={formData.intermediate?.percentage || ""}
@@ -88,11 +88,11 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
                     intermediate: { ...formData.intermediate, percentage: Number.parseFloat(e.target.value) },
                   })
                 }
-                className="bg-slate-700 border-slate-600 text-white"
+                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
               />
             </div>
             <div>
-              <label className="text-sm font-medium text-slate-200 block mb-2">Degree CGPA</label>
+              <label className="text-sm font-medium text-slate-700 block mb-2">Degree CGPA</label>
               <Input
                 type="number"
                 step="0.1"
@@ -103,7 +103,7 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
                     degree: { ...formData.degree, cgpa: Number.parseFloat(e.target.value) },
                   })
                 }
-                className="bg-slate-700 border-slate-600 text-white"
+                className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
               />
             </div>
           </div>
@@ -113,11 +113,11 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
           <div className="space-y-4">
             {Object.entries(formData).map(([key, value]) => (
               <div key={key}>
-                <label className="text-sm font-medium text-slate-200 block mb-2 capitalize">{key}</label>
+                <label className="text-sm font-medium text-slate-700 block mb-2 capitalize">{key}</label>
                 <Input
                   value={String(value)}
                   onChange={(e) => setFormData({ ...formData, [key]: e.target.value })}
-                  className="bg-slate-700 border-slate-600 text-white"
+                  className="bg-slate-50 border-slate-200 text-slate-900 placeholder:text-slate-500 focus:border-sky-300 focus:ring-sky-200"
                 />
               </div>
             ))}
@@ -127,11 +127,11 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
   }
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <Card className="w-full max-w-md bg-slate-800 border-slate-700 max-h-[90vh] overflow-y-auto">
-        <CardHeader className="flex flex-row items-center justify-between sticky top-0 bg-slate-800">
-          <CardTitle className="text-white capitalize">Edit {section}</CardTitle>
-          <Button variant="ghost" size="sm" onClick={onClose} className="text-slate-400">
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50 p-4">
+      <Card className="w-full max-w-md glass-sm border border-slate-200/80 max-h-[90vh] overflow-y-auto">
+        <CardHeader className="flex flex-row items-center justify-between sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-200/50">
+          <CardTitle className="text-slate-900 capitalize">Edit {section}</CardTitle>
+          <Button variant="ghost" size="sm" onClick={onClose} className="text-slate-400 hover:text-slate-600 hover:bg-slate-100">
             <X size={20} />
           </Button>
         </CardHeader>
@@ -141,11 +141,11 @@ export default function StaffEditModal({ section, studentData, onClose }: StaffE
             <Button
               variant="outline"
               onClick={onClose}
-              className="flex-1 text-slate-200 border-slate-600 bg-transparent"
+              className="flex-1 text-slate-700 border-slate-300 bg-white/70 hover:bg-slate-100 hover:text-slate-900"
             >
               Cancel
             </Button>
-            <Button onClick={handleSave} className="flex-1 bg-blue-600 hover:bg-blue-700">
+            <Button onClick={handleSave} className="flex-1 bg-sky-600 hover:bg-sky-700 text-white">
               Save Changes
             </Button>
           </div>

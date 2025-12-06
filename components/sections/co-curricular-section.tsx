@@ -29,21 +29,23 @@ export default function CoCurricularSection({ studentId }: CoCurricularSectionPr
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Co-Curricular Activities</h2>
+      <h2 className="text-3xl font-bold text-slate-900 gradient-text">
+        Co-Curricular Activities
+      </h2>
 
       {/* Seminars */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Seminars Attended</CardTitle>
+          <CardTitle className="text-slate-900">Seminars Attended</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {coCurricularData.seminars.map((seminar, idx) => (
-              <div key={idx} className="bg-slate-700 p-4 rounded-lg">
+              <div key={idx} className="bg-slate-50 border border-slate-200 rounded-lg p-4">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-white font-semibold">{seminar.name}</p>
-                    <p className="text-sm text-slate-400">{seminar.organizer}</p>
+                    <p className="text-slate-900 font-semibold">{seminar.name}</p>
+                    <p className="text-sm text-slate-500">{seminar.organizer}</p>
                   </div>
                   <Badge className="bg-blue-600">{seminar.date}</Badge>
                 </div>
@@ -54,18 +56,18 @@ export default function CoCurricularSection({ studentId }: CoCurricularSectionPr
       </Card>
 
       {/* Hackathons */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Hackathons</CardTitle>
+          <CardTitle className="text-slate-900">Hackathons</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {coCurricularData.hackathons.map((hackathon, idx) => (
-              <div key={idx} className="bg-slate-700 p-4 rounded-lg">
+              <div key={idx} className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-white font-semibold">{hackathon.name}</p>
-                    <p className="text-sm text-slate-400">{hackathon.team}</p>
+                    <p className="text-slate-900 font-semibold">{hackathon.name}</p>
+                    <p className="text-sm text-slate-500">{hackathon.team}</p>
                   </div>
                   <Badge className="bg-green-600">{hackathon.position}</Badge>
                 </div>
@@ -76,18 +78,18 @@ export default function CoCurricularSection({ studentId }: CoCurricularSectionPr
       </Card>
 
       {/* Events */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Events</CardTitle>
+          <CardTitle className="text-slate-900">Events</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {coCurricularData.events.map((event, idx) => (
-              <div key={idx} className="bg-slate-700 p-4 rounded-lg">
+              <div key={idx} className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-white font-semibold">{event.name}</p>
-                    <p className="text-sm text-slate-400">{event.role}</p>
+                    <p className="text-slate-900 font-semibold">{event.name}</p>
+                    <p className="text-sm text-slate-500">{event.role}</p>
                   </div>
                   <Badge className="bg-purple-600">{event.date}</Badge>
                 </div>
@@ -98,20 +100,28 @@ export default function CoCurricularSection({ studentId }: CoCurricularSectionPr
       </Card>
 
       {/* Clubs */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Club Memberships</CardTitle>
+          <CardTitle className="text-slate-900">Club Memberships</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {coCurricularData.clubs.map((club, idx) => (
-              <div key={idx} className="bg-slate-700 p-4 rounded-lg">
+              <div key={idx} className="bg-slate-50 border border-slate-200 p-4 rounded-lg">
                 <div className="flex justify-between items-start">
                   <div>
-                    <p className="text-white font-semibold">{club.name}</p>
-                    <p className="text-sm text-slate-400">{club.role}</p>
+                    <p className="text-slate-900 font-semibold">{club.name}</p>
+                    <p className="text-sm text-slate-500">{club.role}</p>
                   </div>
-                  <Badge className={club.status === "Active" ? "bg-green-600" : "bg-gray-600"}>{club.status}</Badge>
+                  <Badge
+                    className={
+                      club.status === "Active"
+                        ? "bg-emerald-100 text-emerald-700 border border-emerald-200"
+                        : "bg-slate-100 text-slate-600 border border-slate-200"
+                    }>
+                    {club.status}
+                  </Badge>
+
                 </div>
               </div>
             ))}

@@ -23,72 +23,72 @@ export default function ProfileSection({ studentId }: ProfileSectionProps) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Profile</h2>
+      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Profile</h2>
 
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Personal Information</CardTitle>
+          <CardTitle className="text-slate-900">Personal Information</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-2 gap-6">
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <p className="text-sm text-slate-400">Full Name</p>
-            <p className="text-lg font-semibold text-white">{profileData.name}</p>
+            <p className="text-sm text-slate-500">Full Name</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.name}</p>
           </div>
           <div>
-            <p className="text-sm text-slate-400">Email</p>
-            <p className="text-lg font-semibold text-white">{profileData.email}</p>
+            <p className="text-sm text-slate-500">Email</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.email}</p>
           </div>
           <div>
-            <p className="text-sm text-slate-400">Phone</p>
-            <p className="text-lg font-semibold text-white">{profileData.phone}</p>
+            <p className="text-sm text-slate-500">Phone</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.phone}</p>
           </div>
           <div>
-            <p className="text-sm text-slate-400">Date of Birth</p>
-            <p className="text-lg font-semibold text-white">{profileData.dob}</p>
+            <p className="text-sm text-slate-500">Date of Birth</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.dob}</p>
           </div>
-          <div className="col-span-2">
-            <p className="text-sm text-slate-400">Address</p>
-            <p className="text-lg font-semibold text-white">{profileData.address}</p>
+          <div className="col-span-1 md:col-span-2">
+            <p className="text-sm text-slate-500">Address</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.address}</p>
           </div>
         </CardContent>
       </Card>
 
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Academic Information</CardTitle>
+          <CardTitle className="text-slate-900">Academic Information</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-2 gap-6">
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <p className="text-sm text-slate-400">Roll Number</p>
-            <p className="text-lg font-semibold text-white">{profileData.rollNumber}</p>
+            <p className="text-sm text-slate-500">Roll Number</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.rollNumber}</p>
           </div>
           <div>
-            <p className="text-sm text-slate-400">Year</p>
-            <p className="text-lg font-semibold text-white">Year {profileData.year}</p>
+            <p className="text-sm text-slate-500">Year</p>
+            <p className="text-lg font-semibold text-slate-900">Year {profileData.year}</p>
           </div>
           <div>
-            <p className="text-sm text-slate-400">Branch</p>
-            <p className="text-lg font-semibold text-white">{profileData.branch}</p>
+            <p className="text-sm text-slate-500">Branch</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.branch}</p>
           </div>
           <div>
-            <p className="text-sm text-slate-400">Section</p>
-            <p className="text-lg font-semibold text-white">{profileData.section}</p>
+            <p className="text-sm text-slate-500">Section</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.section}</p>
           </div>
         </CardContent>
       </Card>
 
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Parent/Guardian Information</CardTitle>
+          <CardTitle className="text-slate-900">Parent/Guardian Information</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-2 gap-6">
+        <CardContent className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <p className="text-sm text-slate-400">Parent Name</p>
-            <p className="text-lg font-semibold text-white">{profileData.parentName}</p>
+            <p className="text-sm text-slate-500">Parent Name</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.parentName}</p>
           </div>
           <div>
-            <p className="text-sm text-slate-400">Parent Phone</p>
-            <p className="text-lg font-semibold text-white">{profileData.parentPhone}</p>
+            <p className="text-sm text-slate-500">Parent Phone</p>
+            <p className="text-lg font-semibold text-slate-900">{profileData.parentPhone}</p>
           </div>
         </CardContent>
       </Card>

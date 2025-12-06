@@ -42,35 +42,35 @@ export default function OnlinePlatformsSection({ studentId }: OnlinePlatformsSec
   ]
 
   const achievements = [
-    { title: "50 Day Streak", subtitle: "Earned 2 days ago", color: "bg-yellow-500/20" },
-    { title: "Algorithm Master", subtitle: "100+ problems solved", color: "bg-blue-500/20" },
-    { title: "Contest Winner", subtitle: "Top 10% in CodeRush", color: "bg-green-500/20" },
+    { title: "50 Day Streak", subtitle: "Earned 2 days ago", color: "bg-amber-50" },
+    { title: "Algorithm Master", subtitle: "100+ problems solved", color: "bg-blue-50" },
+    { title: "Contest Winner", subtitle: "Top 10% in CodeRush", color: "bg-emerald-50" },
   ]
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Online Platforms</h2>
+      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Online Platforms</h2>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {platformsData.map((platform, idx) => (
-          <Card key={idx} className="bg-slate-800 border-slate-700">
+          <Card key={idx} className="glass-sm border border-slate-200/80">
             <CardHeader>
-              <CardTitle className="text-white text-lg">{platform.name}</CardTitle>
+              <CardTitle className="text-slate-900 text-lg">{platform.name}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs text-slate-400 uppercase font-semibold">Progress</span>
-                  <span className="text-xs font-semibold text-blue-400">{platform.progress}%</span>
+                  <span className="text-xs text-slate-500 uppercase font-semibold">Progress</span>
+                  <span className="text-xs font-semibold text-sky-600">{platform.progress}%</span>
                 </div>
-                <div className="w-full h-2 bg-blue-500/20 rounded-full overflow-hidden">
+                <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
                   <div
-                    className="h-full bg-blue-500 rounded-full transition-all duration-500"
+                    className="h-full bg-sky-500 rounded-full transition-all duration-500"
                     style={{ width: `${platform.progress}%` }}
                   ></div>
                 </div>
               </div>
-              <div className="text-sm text-slate-300">
+              <div className="text-sm text-slate-600">
                 <div className="flex justify-between">
                   <span>Solved: {platform.problems}</span>
                   <span>Total: {platform.total}</span>
@@ -81,18 +81,18 @@ export default function OnlinePlatformsSection({ studentId }: OnlinePlatformsSec
         ))}
       </div>
 
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Recent Achievements</CardTitle>
+          <CardTitle className="text-slate-900">Recent Achievements</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3">
           {achievements.map((achievement, idx) => (
             <div
               key={idx}
-              className={`${achievement.color} border-l-4 border-blue-500 p-4 rounded flex items-center gap-3`}
+              className={`${achievement.color} border border-slate-200 border-l-4 border-l-blue-500 p-4 rounded-lg flex items-center gap-3`}
             >
               <svg
-                className="w-6 h-6 text-blue-400 flex-shrink-0"
+                className="w-6 h-6 text-sky-500 flex-shrink-0"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -105,35 +105,35 @@ export default function OnlinePlatformsSection({ studentId }: OnlinePlatformsSec
                 />
               </svg>
               <div>
-                <p className="text-white font-semibold text-sm">{achievement.title}</p>
-                <p className="text-slate-400 text-xs">{achievement.subtitle}</p>
+                <p className="text-slate-900 font-semibold text-sm">{achievement.title}</p>
+                <p className="text-slate-600 text-xs">{achievement.subtitle}</p>
               </div>
             </div>
           ))}
         </CardContent>
       </Card>
 
-      {/* Original platform cards */}
+      {/* Platform Details Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {platformsData.map((platform, idx) => (
-          <Card key={`detail-${idx}`} className="bg-slate-800 border-slate-700">
+          <Card key={`detail-${idx}`} className="glass-sm border border-slate-200/80">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle className="text-white">{platform.name} Details</CardTitle>
-              <Badge className={platform.status === "Active" ? "bg-green-600" : "bg-gray-600"}>{platform.status}</Badge>
+              <CardTitle className="text-slate-900">{platform.name} Details</CardTitle>
+              <Badge className={platform.status === "Active" ? "bg-emerald-100 text-emerald-700 border border-emerald-200" : "bg-slate-100 text-slate-600 border border-slate-200"}>{platform.status}</Badge>
             </CardHeader>
             <CardContent className="space-y-3">
               <div>
-                <p className="text-sm text-slate-400">Username</p>
-                <p className="text-white font-semibold">{platform.username}</p>
+                <p className="text-sm text-slate-500">Username</p>
+                <p className="text-slate-900 font-semibold">{platform.username}</p>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-700 p-3 rounded-lg">
-                  <p className="text-xs text-slate-400">Problems Solved</p>
-                  <p className="text-2xl font-bold text-blue-400">{platform.problems}</p>
+                <div className="bg-slate-50/90 border border-slate-200 p-3 rounded-xl">
+                  <p className="text-xs text-slate-500">Problems Solved</p>
+                  <p className="text-2xl font-bold text-sky-600">{platform.problems}</p>
                 </div>
-                <div className="bg-slate-700 p-3 rounded-lg">
-                  <p className="text-xs text-slate-400">Rating</p>
-                  <p className="text-2xl font-bold text-green-400">{platform.rating}</p>
+                <div className="bg-slate-50/90 border border-slate-200 p-3 rounded-xl">
+                  <p className="text-xs text-slate-500">Rating</p>
+                  <p className="text-2xl font-bold text-emerald-600">{platform.rating}</p>
                 </div>
               </div>
             </CardContent>

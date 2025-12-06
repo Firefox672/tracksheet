@@ -28,6 +28,7 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
     { month: "Mar", gpa: 3.6, attendance: 90 },
     { month: "Apr", gpa: 3.5, attendance: 87 },
     { month: "May", gpa: 3.8, attendance: 92 },
+    { month: "Jun", gpa: 3.85, attendance: 93 },
   ]
 
   const radarData = [
@@ -41,20 +42,20 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Overview</h2>
+      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Overview</h2>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-4 gap-4">
-        <Card className="bg-slate-800 border-slate-700 border-l-4 border-l-blue-500">
-          <CardContent className="pt-6">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <Card className="glass-sm border border-slate-200/80">
+          <CardContent className="pt-5">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm text-slate-400">Growth Score Index</p>
-                <h3 className="text-3xl font-bold text-white mt-2">78.5</h3>
-                <p className="text-xs text-slate-400 mt-1">+5.2 from last month</p>
+                <p className="text-xs font-medium text-slate-500">Growth Score Index</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">78.5</h3>
+                <p className="text-xs text-emerald-600 mt-1">+5.2 from last month</p>
               </div>
-              <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-sky-100 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -67,16 +68,16 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 border-slate-700 border-l-4 border-l-green-500">
-          <CardContent className="pt-6">
+        <Card className="glass-sm border border-slate-200/80">
+          <CardContent className="pt-5">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm text-slate-400">Academic GPA</p>
-                <h3 className="text-3xl font-bold text-white mt-2">3.8</h3>
-                <p className="text-xs text-slate-400 mt-1">Top 15% of class</p>
+                <p className="text-xs font-medium text-slate-500">Academic GPA</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">3.8</h3>
+                <p className="text-xs text-slate-500 mt-1">Top 15% of class</p>
               </div>
-              <div className="w-12 h-12 bg-green-500/20 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-100 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -89,16 +90,16 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 border-slate-700 border-l-4 border-l-yellow-500">
-          <CardContent className="pt-6">
+        <Card className="glass-sm border border-slate-200/80">
+          <CardContent className="pt-5">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm text-slate-400">Coding Problems</p>
-                <h3 className="text-3xl font-bold text-white mt-2">301</h3>
-                <p className="text-xs text-slate-400 mt-1">67 this month</p>
+                <p className="text-xs font-medium text-slate-500">Coding Problems</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">301</h3>
+                <p className="text-xs text-slate-500 mt-1">67 this month</p>
               </div>
-              <div className="w-12 h-12 bg-yellow-500/20 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-amber-100 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -111,16 +112,16 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 border-slate-700 border-l-4 border-l-red-500">
-          <CardContent className="pt-6">
+        <Card className="glass-sm border border-slate-200/80">
+          <CardContent className="pt-5">
             <div className="flex justify-between items-start">
               <div>
-                <p className="text-sm text-slate-400">Achievements</p>
-                <h3 className="text-3xl font-bold text-white mt-2">24</h3>
-                <p className="text-xs text-slate-400 mt-1">8 new badges</p>
+                <p className="text-xs font-medium text-slate-500">Achievements</p>
+                <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">24</h3>
+                <p className="text-xs text-slate-500 mt-1">8 new badges</p>
               </div>
-              <div className="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-rose-100 rounded-full flex items-center justify-center">
+                <svg className="w-5 h-5 md:w-6 md:h-6 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -135,38 +136,39 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-2 gap-6">
-        <Card className="bg-slate-800 border-slate-700">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <Card className="glass-sm border border-slate-200/80">
           <CardHeader>
-            <CardTitle className="text-white">Performance Trend</CardTitle>
+            <CardTitle className="text-slate-900">Performance Trend</CardTitle>
           </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
+          <CardContent className="h-72">
+            <ResponsiveContainer width="100%" height="100%">
               <LineChart data={performanceData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
-                <XAxis dataKey="month" stroke="#94a3b8" />
-                <YAxis stroke="#94a3b8" />
-                <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "1px solid #475569" }} />
+                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <XAxis dataKey="month" stroke="#64748b" />
+                <YAxis stroke="#64748b" />
+                <Tooltip contentStyle={{ borderRadius: 12, backgroundColor: "#ffffff", border: "1px solid #e2e8f0" }} />
                 <Legend />
-                <Line type="monotone" dataKey="gpa" stroke="#3b82f6" strokeWidth={2} name="GPA" />
-                <Line type="monotone" dataKey="attendance" stroke="#10b981" strokeWidth={2} name="Attendance %" />
+                <Line type="monotone" dataKey="gpa" stroke="#6366f1" strokeWidth={2} name="GPA" dot={{ r: 4 }} />
+                <Line type="monotone" dataKey="attendance" stroke="#22c55e" strokeWidth={2} name="Attendance %" dot={{ r: 4 }} />
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 border-slate-700">
+        <Card className="glass-sm border border-slate-200/80">
           <CardHeader>
-            <CardTitle className="text-white">Holistic Profile (360° View)</CardTitle>
+            <CardTitle className="text-slate-900">Holistic Profile (360° View)</CardTitle>
           </CardHeader>
-          <CardContent>
-            <ResponsiveContainer width="100%" height={300}>
+          <CardContent className="h-72">
+            <ResponsiveContainer width="100%" height="100%">
               <RadarChart data={radarData}>
-                <PolarGrid stroke="#475569" />
-                <PolarAngleAxis dataKey="category" stroke="#94a3b8" />
-                <PolarRadiusAxis stroke="#94a3b8" />
-                <Radar name="Performance" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.6} />
-                <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "1px solid #475569" }} />
+                <PolarGrid stroke="#e5e7eb" />
+                <PolarAngleAxis dataKey="category" tick={{ fill: "#64748b", fontSize: 12 }} />
+                <PolarRadiusAxis tick={{ fill: "#64748b" }} />
+                <Radar name="Performance" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.35} />
+                <Tooltip contentStyle={{ borderRadius: 12, backgroundColor: "#ffffff", border: "1px solid #e2e8f0" }} />
+                <Legend />
               </RadarChart>
             </ResponsiveContainer>
           </CardContent>
@@ -174,10 +176,10 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
       </div>
 
       {/* AI Recommendations */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white flex items-center gap-2">
-            <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <CardTitle className="text-slate-900 flex items-center gap-2">
+            <svg className="w-5 h-5 text-sky-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -188,22 +190,22 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
             AI-Powered Recommendations
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-3">
-          <div className="bg-blue-500/10 border-l-4 border-blue-500 p-4 rounded">
-            <p className="text-white font-semibold text-sm">Focus Area: Data Structures</p>
-            <p className="text-slate-300 text-sm mt-1">
+        <CardContent className="space-y-3 md:space-y-0 md:grid md:grid-cols-3 md:gap-4">
+          <div className="bg-sky-50 border border-sky-100 p-4 rounded-xl">
+            <p className="text-sm font-semibold text-sky-800">Focus Area: Data Structures</p>
+            <p className="text-xs text-sky-700 mt-1">
               Based on your coding patterns, concentrate on Tree and Graph problems to improve algorithm efficiency.
             </p>
           </div>
-          <div className="bg-green-500/10 border-l-4 border-green-500 p-4 rounded">
-            <p className="text-white font-semibold text-sm">Strength: Mathematics</p>
-            <p className="text-slate-300 text-sm mt-1">
+          <div className="bg-emerald-50 border border-emerald-100 p-4 rounded-xl">
+            <p className="text-sm font-semibold text-emerald-800">Strength: Mathematics</p>
+            <p className="text-xs text-emerald-700 mt-1">
               Excellent performance! Consider participating in Math Olympiad or advanced placement courses.
             </p>
           </div>
-          <div className="bg-yellow-500/10 border-l-4 border-yellow-500 p-4 rounded">
-            <p className="text-white font-semibold text-sm">Improvement Needed: Leadership Activities</p>
-            <p className="text-slate-300 text-sm mt-1">
+          <div className="bg-amber-50 border border-amber-100 p-4 rounded-xl">
+            <p className="text-sm font-semibold text-amber-800">Improvement Needed: Leadership Activities</p>
+            <p className="text-xs text-amber-700 mt-1">
               Join student council or lead a project team to develop leadership skills for holistic growth.
             </p>
           </div>

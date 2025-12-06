@@ -45,41 +45,41 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
 
   return (
     <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-white">Academic Details</h2>
+      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Academic Details</h2>
 
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Subject-wise Performance</CardTitle>
+          <CardTitle className="text-slate-900">Subject-wise Performance</CardTitle>
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={subjectPerformanceData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
-              <XAxis dataKey="subject" stroke="#94a3b8" />
-              <YAxis stroke="#94a3b8" />
-              <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "1px solid #475569" }} />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+              <XAxis dataKey="subject" stroke="#64748b" />
+              <YAxis stroke="#64748b" />
+              <Tooltip contentStyle={{ backgroundColor: "#ffffff", border: "1px solid #e2e8f0", borderRadius: 12 }} />
               <Legend />
-              <Bar dataKey="yourScore" fill="#3b82f6" name="Your Score" />
-              <Bar dataKey="classAvg" fill="#94a3b8" name="Class Average" />
+              <Bar dataKey="yourScore" fill="#6366f1" name="Your Score" />
+              <Bar dataKey="classAvg" fill="#22c55e" name="Class Average" />
             </BarChart>
           </ResponsiveContainer>
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-3 gap-4">
-        <Card className="bg-slate-800 border-slate-700">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <Card className="glass-sm border border-slate-200/80">
           <CardHeader>
-            <CardTitle className="text-white text-lg">Attendance</CardTitle>
+            <CardTitle className="text-slate-900 text-lg">Attendance</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <p className="text-4xl font-bold text-green-400">92%</p>
-            <p className="text-slate-400 text-sm mt-2">Overall Attendance</p>
+            <p className="text-4xl font-bold text-emerald-500">92%</p>
+            <p className="text-slate-500 text-sm mt-2">Overall Attendance</p>
             <div className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-slate-600">
                 <span>Theory Classes</span>
                 <span className="font-semibold">95%</span>
               </div>
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-slate-600">
                 <span>Lab Sessions</span>
                 <span className="font-semibold">88%</span>
               </div>
@@ -87,39 +87,39 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 border-slate-700">
+        <Card className="glass-sm border border-slate-200/80">
           <CardHeader>
-            <CardTitle className="text-white text-lg">Assignments</CardTitle>
+            <CardTitle className="text-slate-900 text-lg">Assignments</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <p className="text-4xl font-bold text-blue-400">18/20</p>
-            <p className="text-slate-400 text-sm mt-2">Completed</p>
+            <p className="text-4xl font-bold text-sky-500">18/20</p>
+            <p className="text-slate-500 text-sm mt-2">Completed</p>
             <div className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-slate-600">
                 <span>On Time</span>
-                <span className="font-semibold text-green-400">16</span>
+                <span className="font-semibold text-emerald-600">16</span>
               </div>
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-slate-600">
                 <span>Late</span>
-                <span className="font-semibold text-yellow-400">2</span>
+                <span className="font-semibold text-amber-500">2</span>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        <Card className="bg-slate-800 border-slate-700">
+        <Card className="glass-sm border border-slate-200/80">
           <CardHeader>
-            <CardTitle className="text-white text-lg">Class Participation</CardTitle>
+            <CardTitle className="text-slate-900 text-lg">Class Participation</CardTitle>
           </CardHeader>
           <CardContent className="text-center">
-            <p className="text-4xl font-bold text-purple-400">87%</p>
-            <p className="text-slate-400 text-sm mt-2">Engagement Score</p>
+            <p className="text-4xl font-bold text-violet-500">87%</p>
+            <p className="text-slate-500 text-sm mt-2">Engagement Score</p>
             <div className="mt-4 space-y-2 text-sm">
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-slate-600">
                 <span>Questions Asked</span>
                 <span className="font-semibold">34</span>
               </div>
-              <div className="flex justify-between text-slate-300">
+              <div className="flex justify-between text-slate-600">
                 <span>Discussions</span>
                 <span className="font-semibold">22</span>
               </div>
@@ -129,82 +129,82 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
       </div>
 
       {/* 10th Grade */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">10th Grade</CardTitle>
+          <CardTitle className="text-slate-900">10th Grade</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Percentage</p>
-              <p className="text-3xl font-bold text-blue-400">{academicData.tenth.percentage}%</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Percentage</p>
+              <p className="text-3xl font-bold text-sky-500">{academicData.tenth.percentage}%</p>
             </div>
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Board</p>
-              <p className="text-lg font-semibold text-white">{academicData.tenth.board}</p>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Board</p>
+              <p className="text-lg font-semibold text-slate-900">{academicData.tenth.board}</p>
             </div>
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Year</p>
-              <p className="text-lg font-semibold text-white">{academicData.tenth.year}</p>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Year</p>
+              <p className="text-lg font-semibold text-slate-900">{academicData.tenth.year}</p>
             </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Intermediate */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Intermediate</CardTitle>
+          <CardTitle className="text-slate-900">Intermediate</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-3 gap-4">
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Percentage</p>
-              <p className="text-3xl font-bold text-blue-400">{academicData.intermediate.percentage}%</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Percentage</p>
+              <p className="text-3xl font-bold text-sky-500">{academicData.intermediate.percentage}%</p>
             </div>
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Stream</p>
-              <p className="text-lg font-semibold text-white">{academicData.intermediate.stream}</p>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Stream</p>
+              <p className="text-lg font-semibold text-slate-900">{academicData.intermediate.stream}</p>
             </div>
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Year</p>
-              <p className="text-lg font-semibold text-white">{academicData.intermediate.year}</p>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Year</p>
+              <p className="text-lg font-semibold text-slate-900">{academicData.intermediate.year}</p>
             </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Degree */}
-      <Card className="bg-slate-800 border-slate-700">
+      <Card className="glass-sm border border-slate-200/80">
         <CardHeader>
-          <CardTitle className="text-white">Degree</CardTitle>
+          <CardTitle className="text-slate-900">Degree</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <div className="grid grid-cols-3 gap-4 mb-6">
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">CGPA</p>
-              <p className="text-3xl font-bold text-green-400">{academicData.degree.cgpa}</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">CGPA</p>
+              <p className="text-3xl font-bold text-emerald-500">{academicData.degree.cgpa}</p>
             </div>
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Current Semester</p>
-              <p className="text-lg font-semibold text-white">{academicData.degree.semester}</p>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Current Semester</p>
+              <p className="text-lg font-semibold text-slate-900">{academicData.degree.semester}</p>
             </div>
-            <div className="bg-slate-700 p-4 rounded-lg">
-              <p className="text-sm text-slate-400">Branch</p>
-              <p className="text-lg font-semibold text-white">CSE</p>
+            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <p className="text-sm text-slate-500">Branch</p>
+              <p className="text-lg font-semibold text-slate-900">CSE</p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-3">Current Semester Courses</h4>
+            <h4 className="text-slate-900 font-semibold mb-3">Current Semester Courses</h4>
             <div className="space-y-2">
               {academicData.degree.courses.map((course, idx) => (
-                <div key={idx} className="bg-slate-700 p-3 rounded-lg flex justify-between items-center">
+                <div key={idx} className="bg-slate-50 border border-slate-200 p-3 rounded-lg flex justify-between items-center">
                   <div>
-                    <p className="text-white font-semibold">{course.name}</p>
-                    <p className="text-sm text-slate-400">{course.credits} Credits</p>
+                    <p className="text-slate-900 font-semibold">{course.name}</p>
+                    <p className="text-sm text-slate-500">{course.credits} Credits</p>
                   </div>
-                  <span className="bg-blue-600 text-white px-3 py-1 rounded text-sm font-semibold">{course.grade}</span>
+                  <span className="bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full text-xs font-semibold">{course.grade}</span>
                 </div>
               ))}
             </div>
