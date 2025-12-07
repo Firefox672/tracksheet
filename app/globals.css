@@ -210,3 +210,33 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+/* Card-based system utilities */
+.col-span-full {
+  grid-column: 1 / -1;
+}
+
+/* TopBar & Accessibility utilities */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Ensure smooth transitions for interactive elements */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Focus visible styles for accessibility */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(59, 130, 246, 0.18);
+  outline-offset: 2px;
+}

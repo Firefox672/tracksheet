@@ -1,6 +1,9 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import AnimatedCard from "@/components/ui/AnimatedCard"
+import DashboardGrid from "@/components/dashboard/DashboardGrid"
+import SectionFadeSlide from "@/components/transitions/SectionFadeSlide"
 import {
   RadarChart,
   PolarGrid,
@@ -41,13 +44,13 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
   ]
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Overview</h2>
+    <SectionFadeSlide>
+      <div className="space-y-6">
+        <h2 className="text-3xl font-bold text-slate-900 gradient-text">Overview</h2>
 
-      {/* Stat Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card className="glass-sm border border-slate-200/80">
-          <CardContent className="pt-5">
+        {/* Stat Cards */}
+        <DashboardGrid columns={4}>
+          <AnimatedCard glassy>
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-xs font-medium text-slate-500">Growth Score Index</p>
@@ -65,11 +68,9 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
                 </svg>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </AnimatedCard>
 
-        <Card className="glass-sm border border-slate-200/80">
-          <CardContent className="pt-5">
+          <AnimatedCard glassy>
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-xs font-medium text-slate-500">Academic GPA</p>
@@ -87,11 +88,9 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
                 </svg>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </AnimatedCard>
 
-        <Card className="glass-sm border border-slate-200/80">
-          <CardContent className="pt-5">
+          <AnimatedCard glassy>
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-xs font-medium text-slate-500">Coding Problems</p>
@@ -109,11 +108,9 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
                 </svg>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </AnimatedCard>
 
-        <Card className="glass-sm border border-slate-200/80">
-          <CardContent className="pt-5">
+          <AnimatedCard glassy>
             <div className="flex justify-between items-start">
               <div>
                 <p className="text-xs font-medium text-slate-500">Achievements</p>
@@ -131,9 +128,8 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
                 </svg>
               </div>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          </AnimatedCard>
+        </DashboardGrid>
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -211,6 +207,7 @@ export default function OverviewSection({ studentId }: OverviewSectionProps) {
           </div>
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </SectionFadeSlide>
   )
 }

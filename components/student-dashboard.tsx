@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import StudentSidebar from "./student-sidebar";
+import TopBar from "./ui/TopBar";
+import AnnouncementBox from "./ui/AnnouncementBox";
 import OverviewSection from "./sections/overview-section";
 import ProfileSection from "./sections/profile-section";
 import AcademicSection from "./sections/academic-section";
@@ -15,13 +18,35 @@ import AlertsSection from "./sections/alerts-section";
 interface StudentDashboardProps {
   studentId: string;
   onLogout: () => void;
+  userName?: string;
+  userEmail?: string;
 }
 
 export default function StudentDashboard({
   studentId,
   onLogout,
+  userName = "Student",
+  userEmail = "student@tracksheet.edu",
 }: StudentDashboardProps) {
   const [activeSection, setActiveSection] = useState("overview");
+  const [showAnnouncement, setShowAnnouncement] = useState(true);
+
+  const handleSearch = (query: string) => {
+    console.log("Search query:", query);
+    // TODO: Implement search functionality across sections
+  };
+
+  const handleAnnouncementCTA = () => {
+    setActiveSection("profile");
+  };
+
+  const handleProfileClick = () => {
+    setActiveSection("profile");
+  };
+
+  const handleDashboardClick = () => {
+    setActiveSection("overview");
+  };
 
   const renderSection = () => {
     switch (activeSection) {
@@ -48,26 +73,53 @@ export default function StudentDashboard({
 
   return (
     <div className="flex h-screen">
-      {/* Sidebar uses glass + new palette now */}
       <StudentSidebar
         activeSection={activeSection}
         onSectionChange={setActiveSection}
       />
 
       <div className="flex-1 flex flex-col">
-        {/* Top bar: light glass header */}
-        <div className="glass glass-sm border-b border-slate-200/80 px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold gradient-text">TRACKSHEET</h1>
-          <Button
-            variant="outline"
-            onClick={onLogout}
-            className="rounded-full border-slate-300 bg-white/70 text-slate-700 hover:bg-slate-100 hover:text-slate-900"
-          >
-            Logout
-          </Button>
-        </div>
+        {/* TopBar with integrated navigation */}
+        <TopBar
+          userName={userName}
+          userEmail={userEmail}
+          onSearch={handleSearch}
+          onLogout={onLogout}
+          onProfileClick={handleProfileClick}
+          onDashboardClick={handleDashboardClick}
+        />
 
-        <div className="flex-1 overflow-auto p-8">{renderSection()}</div>
+        {/* Announcement Banner */}
+        {showAnnouncement && (
+          <AnnouncementBox
+            text="Complete your profile to unlock personalized insights and recommendations! 🎯"
+            cta={{
+              label: "Complete Profile",
+              onClick: handleAnnouncementCTA,
+            }}
+            onClose={() => setShowAnnouncement(false)}
+          />
+        )}
+
+        {/* Animated section content */}
+        <div className="flex-1 overflow-auto p-6 md:p-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeSection}
+              initial={{ opacity: 0, y: 10, scale: 0.99 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.99 }}
+              transition={{
+                duration: 0.28,
+                ease: [0.19, 0.79, 0.29, 1],
+              }}
+              className="will-change-transform"
+              style={{ backfaceVisibility: "hidden" }}
+            >
+              {renderSection()}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

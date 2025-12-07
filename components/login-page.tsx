@@ -2,6 +2,7 @@
 
 import type React from "react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -11,6 +12,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { containerVariants, itemVariants } from "@/lib/animations";
 
 interface LoginPageProps {
   onLogin: (role: "student" | "staff", id: string) => void;
@@ -29,104 +31,116 @@ export default function LoginPage({ onLogin }: LoginPageProps) {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-10">
-      <Card className="w-full max-w-md glass glass-lg">
-        <CardHeader className="space-y-2">
-          <div className="flex items-center justify-between mb-2">
-            <div>
-              <CardTitle className="text-2xl font-bold gradient-text">
-                TRACKSHEET
-              </CardTitle>
-              <CardDescription className="text-sm text-slate-500">
-                Student Performance Tracking
-              </CardDescription>
-            </div>
-          </div>
-        </CardHeader>
+      <motion.div
+        variants={containerVariants}
+        initial="initial"
+        animate="animate"
+      >
+        <Card className="w-full max-w-md glass glass-lg">
+          <CardHeader className="space-y-2">
+            <motion.div variants={itemVariants} className="flex items-center justify-between mb-2">
+              <div>
+                <CardTitle className="text-2xl font-bold gradient-text">
+                  TRACKSHEET
+                </CardTitle>
+                <CardDescription className="text-sm text-slate-500">
+                  Student Performance Tracking
+                </CardDescription>
+              </div>
+            </motion.div>
+          </CardHeader>
 
-        <CardContent>
-          <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Role toggle */}
-            <div className="flex gap-2 mb-2">
-              <Button
-                type="button"
-                variant={isStudent ? "default" : "outline"}
-                className={`flex-1 rounded-2xl text-sm font-medium transition-all ${
-                  isStudent
-                    ? "bg-gradient-to-r from-cyan-400 to-indigo-500 text-white border-0 shadow-md shadow-cyan-400/40"
-                    : "border-slate-200 text-slate-600 bg-white/70 hover:bg-slate-50"
-                }`}
-                onClick={() => setIsStudent(true)}
-              >
-                Student
-              </Button>
-
-              <Button
-                type="button"
-                variant={!isStudent ? "default" : "outline"}
-                className={`flex-1 rounded-2xl text-sm font-medium transition-all ${
-                  !isStudent
-                    ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white border-0 shadow-md shadow-indigo-400/40"
-                    : "border-slate-200 text-slate-600 bg-white/70 hover:bg-slate-50"
-                }`}
-                onClick={() => setIsStudent(false)}
-              >
-                Staff
-              </Button>
-            </div>
-
-            {/* Email */}
-            <div className="space-y-1">
-              <label className="text-xs font-medium text-slate-600">
-                Email
-              </label>
-              <Input
-                type="email"
-                placeholder={
-                  isStudent
-                    ? "student@example.com"
-                    : "staff@example.com"
-                }
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="rounded-2xl bg-white/80 border-slate-200 text-slate-800"
-              />
-            </div>
-
-            {/* Password */}
-            <div className="space-y-1">
-              <label className="text-xs font-medium text-slate-600">
-                Password
-              </label>
-              <Input
-                type="password"
-                placeholder="Enter any password for demo"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="rounded-2xl bg-white/80 border-slate-200 text-slate-800"
-              />
-            </div>
-
-            <Button
-              type="submit"
-              className="w-full mt-2 primary-btn rounded-2xl"
+          <CardContent>
+            <motion.form
+              onSubmit={handleSubmit}
+              className="space-y-5"
+              variants={containerVariants}
             >
-              Continue as {isStudent ? "Student" : "Staff"}
-            </Button>
-          </form>
+              {/* Role toggle */}
+              <motion.div variants={itemVariants} className="flex gap-2 mb-2">
+                <Button
+                  type="button"
+                  variant={isStudent ? "default" : "outline"}
+                  className={`flex-1 rounded-2xl text-sm font-medium transition-all ${
+                    isStudent
+                      ? "bg-gradient-to-r from-cyan-400 to-indigo-500 text-white border-0 shadow-md shadow-cyan-400/40"
+                      : "border-slate-200 text-slate-600 bg-white/70 hover:bg-slate-50"
+                  }`}
+                  onClick={() => setIsStudent(true)}
+                >
+                  Student
+                </Button>
 
-          {/* Demo credentials */}
-          <div className="mt-6 px-4 py-3 rounded-2xl bg-slate-50/90 border border-slate-200 text-xs text-slate-600">
-            <p className="font-semibold mb-2 text-slate-700">
-              Demo Credentials
-            </p>
-            <p>Student: student@example.com</p>
-            <p>Staff: staff@example.com</p>
-            <p className="text-[0.7rem] text-slate-500 mt-1">
-              Any password works. This login is for UI demonstration only.
-            </p>
-          </div>
-        </CardContent>
-      </Card>
+                <Button
+                  type="button"
+                  variant={!isStudent ? "default" : "outline"}
+                  className={`flex-1 rounded-2xl text-sm font-medium transition-all ${
+                    !isStudent
+                      ? "bg-gradient-to-r from-indigo-500 to-violet-500 text-white border-0 shadow-md shadow-indigo-400/40"
+                      : "border-slate-200 text-slate-600 bg-white/70 hover:bg-slate-50"
+                  }`}
+                  onClick={() => setIsStudent(false)}
+                >
+                  Staff
+                </Button>
+              </motion.div>
+
+              {/* Email */}
+              <motion.div variants={itemVariants} className="space-y-1">
+                <label className="text-xs font-medium text-slate-600">
+                  Email
+                </label>
+                <Input
+                  type="email"
+                  placeholder={
+                    isStudent
+                      ? "student@example.com"
+                      : "staff@example.com"
+                  }
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="rounded-2xl bg-white/80 border-slate-200 text-slate-800"
+                />
+              </motion.div>
+
+              {/* Password */}
+              <motion.div variants={itemVariants} className="space-y-1">
+                <label className="text-xs font-medium text-slate-600">
+                  Password
+                </label>
+                <Input
+                  type="password"
+                  placeholder="Enter any password for demo"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="rounded-2xl bg-white/80 border-slate-200 text-slate-800"
+                />
+              </motion.div>
+
+              <motion.div variants={itemVariants}>
+                <Button
+                  type="submit"
+                  className="w-full mt-2 primary-btn rounded-2xl"
+                >
+                  Continue as {isStudent ? "Student" : "Staff"}
+                </Button>
+              </motion.div>
+            </motion.form>
+
+            {/* Demo credentials */}
+            <motion.div variants={itemVariants} className="mt-6 px-4 py-3 rounded-2xl bg-slate-50/90 border border-slate-200 text-xs text-slate-600">
+              <p className="font-semibold mb-2 text-slate-700">
+                Demo Credentials
+              </p>
+              <p>Student: student@example.com</p>
+              <p>Staff: staff@example.com</p>
+              <p className="text-[0.7rem] text-slate-500 mt-1">
+                Any password works. This login is for UI demonstration only.
+              </p>
+            </motion.div>
+          </CardContent>
+        </Card>
+      </motion.div>
     </div>
   );
 }

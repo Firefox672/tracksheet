@@ -1,6 +1,9 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import AnimatedCard from "@/components/ui/AnimatedCard"
+import DashboardGrid from "@/components/dashboard/DashboardGrid"
+import SectionFadeSlide from "@/components/transitions/SectionFadeSlide"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts"
 
 interface AcademicSectionProps {
@@ -44,13 +47,14 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
   ]
 
   return (
-    <div className="space-y-6">
-      <h2 className="text-3xl font-bold text-slate-900 gradient-text">Academic Details</h2>
+    <SectionFadeSlide>
+      <div className="space-y-6">
+        <h2 className="text-3xl font-bold text-slate-900 gradient-text">Academic Details</h2>
 
-      <Card className="glass-sm border border-slate-200/80">
-        <CardHeader>
-          <CardTitle className="text-slate-900">Subject-wise Performance</CardTitle>
-        </CardHeader>
+        <Card className="glass-sm border border-slate-200/80">
+          <CardHeader>
+            <CardTitle className="text-slate-900">Subject-wise Performance</CardTitle>
+          </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={subjectPerformanceData}>
@@ -66,12 +70,9 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
         </CardContent>
       </Card>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <Card className="glass-sm border border-slate-200/80">
-          <CardHeader>
-            <CardTitle className="text-slate-900 text-lg">Attendance</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
+      <DashboardGrid columns={3}>
+        <AnimatedCard glassy header={<span className="text-slate-900 text-lg font-semibold">Attendance</span>}>
+          <div className="text-center">
             <p className="text-4xl font-bold text-emerald-500">92%</p>
             <p className="text-slate-500 text-sm mt-2">Overall Attendance</p>
             <div className="mt-4 space-y-2 text-sm">
@@ -84,14 +85,11 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
                 <span className="font-semibold">88%</span>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </AnimatedCard>
 
-        <Card className="glass-sm border border-slate-200/80">
-          <CardHeader>
-            <CardTitle className="text-slate-900 text-lg">Assignments</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
+        <AnimatedCard glassy header={<span className="text-slate-900 text-lg font-semibold">Assignments</span>}>
+          <div className="text-center">
             <p className="text-4xl font-bold text-sky-500">18/20</p>
             <p className="text-slate-500 text-sm mt-2">Completed</p>
             <div className="mt-4 space-y-2 text-sm">
@@ -104,14 +102,11 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
                 <span className="font-semibold text-amber-500">2</span>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </AnimatedCard>
 
-        <Card className="glass-sm border border-slate-200/80">
-          <CardHeader>
-            <CardTitle className="text-slate-900 text-lg">Class Participation</CardTitle>
-          </CardHeader>
-          <CardContent className="text-center">
+        <AnimatedCard glassy header={<span className="text-slate-900 text-lg font-semibold">Class Participation</span>}>
+          <div className="text-center">
             <p className="text-4xl font-bold text-violet-500">87%</p>
             <p className="text-slate-500 text-sm mt-2">Engagement Score</p>
             <div className="mt-4 space-y-2 text-sm">
@@ -124,9 +119,9 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
                 <span className="font-semibold">22</span>
               </div>
             </div>
-          </CardContent>
-        </Card>
-      </div>
+          </div>
+        </AnimatedCard>
+      </DashboardGrid>
 
       {/* 10th Grade */}
       <Card className="glass-sm border border-slate-200/80">
@@ -211,6 +206,7 @@ export default function AcademicSection({ studentId }: AcademicSectionProps) {
           </div>
         </CardContent>
       </Card>
-    </div>
+      </div>
+    </SectionFadeSlide>
   )
 }

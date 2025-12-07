@@ -9,7 +9,7 @@ import OverallAnalysisSection from "./sections/overall-analysis-section"
 
 interface StaffStudentDetailsProps {
   studentId: string
-  onBack: () => void
+  onBack?: () => void
 }
 
 export default function StaffStudentDetails({ studentId, onBack }: StaffStudentDetailsProps) {
@@ -51,10 +51,12 @@ export default function StaffStudentDetails({ studentId, onBack }: StaffStudentD
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-4">
-        <Button variant="outline" onClick={onBack} className="text-slate-700 border-slate-300 bg-white/70 hover:bg-slate-100">
-          <ArrowLeft size={20} />
-          Back
-        </Button>
+        {onBack && (
+          <Button variant="outline" onClick={onBack} className="text-slate-700 border-slate-300 bg-white/70 hover:bg-slate-100">
+            <ArrowLeft size={20} />
+            Back
+          </Button>
+        )}
         <div>
           <h2 className="text-2xl font-bold text-slate-900">{studentData.name}</h2>
           <p className="text-slate-500">{studentData.email}</p>
